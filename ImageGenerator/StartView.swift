@@ -2,7 +2,11 @@ import SwiftUI
 
 struct StartView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack(spacing: 16) {
+            Text("Create a Unique Dish")
+                .font(.largeTitle.weight(.semibold))
+        }
+        .padding()
     }
 }
 
