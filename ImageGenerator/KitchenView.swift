@@ -22,6 +22,8 @@ struct KitchenView: View {
             Rectangle()
                 .fill(.gray.opacity(0.2))
         }
+        .frame(width: ImageGenerator.imageSize, height: ImageGenerator.imageSize)
+        .clipShape(RoundedRectangle(cornerRadius: 16))
     }
 }
 
