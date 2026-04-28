@@ -10,11 +10,14 @@ class ImageGenerator {
         [ImagePlaygroundConcept.text(recipe)]
     }
 
-    func generate() async throws {
+    func generate() async throws -> ImageCreator.CreatedImage {
         guard let style else { return }
 
         let imageCreator = try await ImageCreator()
         let images = imageCreator.images(for: concepts, style: style, limit: 1)
+        for try await image in images {
+            return image
+        }
     }
 }
 
