@@ -1,4 +1,5 @@
 import SwiftUI
+import ImagePlayground
 
 struct StartView: View {
     @State var imageGenerator = ImageGenerator()
@@ -19,6 +20,12 @@ struct StartView: View {
 
             Label("Choose an image style", systemImage: "paintpalette.fill")
                 .padding(.top, 8)
+            Picker("Styles", selection: $imageGenerator.style) {
+                ForEach(ImageGenerator.styles) { style in
+                    Text(style.id.capitalized)
+                        .tag(style)
+                }
+            }
 
             Spacer()
         }
