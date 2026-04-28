@@ -2,15 +2,18 @@ import SwiftUI
 
 struct StartView: View {
     var body: some View {
-        VStack(spacing: 16) {
+        VStack(alignment: .leading, spacing: 16) {
             Text("Create a Unique Dish")
                 .font(.largeTitle.weight(.semibold))
+                .frame(maxWidth: .infinity, alignment: .center)
 
             Label("Choose a dish", systemImage: "fork.knife")
                 .padding(.top, 8)
 
             Label("Choose an image style", systemImage: "paintpalette.fill")
                 .padding(.top, 8)
+
+            Spacer()
         }
         .padding()
     }
