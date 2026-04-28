@@ -34,9 +34,10 @@ struct StartView: View {
         .toolbar {
             ToolbarItem(placement: .primaryAction) {
                 Button("Generate Image") {
-
+                    appManager.generateImage()
                 }
                 .buttonStyle(.glassProminent)
+                .disabled(imageGenerator.style == nil)
             }
         }
         .pickerStyle(.segmented)
