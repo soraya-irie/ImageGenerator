@@ -1,6 +1,8 @@
 import SwiftUI
 
 struct StartView: View {
+    @State var imageGenerator = ImageGenerator()
+
     var body: some View {
         VStack(alignment: .leading, spacing: 16) {
             Text("Create a Unique Dish")
@@ -15,6 +17,7 @@ struct StartView: View {
 
             Spacer()
         }
+        .frame(width: ImageGenerator.imageSize)
         .padding()
     }
 }
