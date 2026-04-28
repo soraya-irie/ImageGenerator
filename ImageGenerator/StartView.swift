@@ -12,7 +12,9 @@ struct StartView: View {
             Label("Choose a dish", systemImage: "fork.knife")
                 .padding(.top, 8)
             Picker("Recipes", selection: $imageGenerator.recipe) {
-
+                ForEach(ImageGenerator.recipes, id: \.description) { recipe in
+                    Text(recipe)
+                }
             }
 
             Label("Choose an image style", systemImage: "paintpalette.fill")
