@@ -31,6 +31,14 @@ struct StartView: View {
 
             Spacer()
         }
+        .toolbar {
+            ToolbarItem(placement: .primaryAction) {
+                Button("Generate Image") {
+
+                }
+                .buttonStyle(.glassProminent)
+            }
+        }
         .pickerStyle(.segmented)
         .labelsHidden()
         .frame(width: ImageGenerator.imageSize)
