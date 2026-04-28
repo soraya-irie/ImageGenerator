@@ -24,6 +24,13 @@ class AppManager {
             }
         }
     }
+
+    func reset() {
+        imageGenerator.resetGenerator()
+        currentImage = nil
+        error = nil
+        isGenerating = false
+    }
 }
 
 extension View {
