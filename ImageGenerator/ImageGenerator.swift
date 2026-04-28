@@ -3,7 +3,8 @@ import ImagePlayground
 
 @Observable
 class ImageGenerator {
-
+    var recipe = ImageGenerator.defaultRecipe
+    var style: ImagePlaygroundStyle?
 }
 
 extension ImageGenerator {
@@ -15,4 +16,5 @@ extension ImageGenerator {
     ]
 
     static let imageSize: CGFloat = 256
+    private static let defaultRecipe = recipes[0]
 }
