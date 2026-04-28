@@ -5,10 +5,8 @@ struct ContentView: View {
 
     var body: some View {
         VStack {
-            if let image = appManager.currentImage {
-                Image(nsImage: image)
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
+            if appManager.showKitchen {
+                KitchenView()
             } else {
                 StartView()
             }
@@ -32,5 +30,5 @@ struct ContentView: View {
 
 #Preview {
     ContentView()
-        .previewEnvironment()
+        .previewEnvironment(generateImage: true)
 }
