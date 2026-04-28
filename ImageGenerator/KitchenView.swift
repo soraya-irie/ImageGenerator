@@ -19,8 +19,14 @@ struct KitchenView: View {
 
     private var imageArea: some View {
         Group {
-            Rectangle()
-                .fill(.gray.opacity(0.2))
+            if let image = appManager.currentImage {
+                Image(nsImage: image)
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+            } else {
+                Rectangle()
+                    .fill(.gray.opacity(0.2))
+            }
         }
         .frame(width: ImageGenerator.imageSize, height: ImageGenerator.imageSize)
         .clipShape(RoundedRectangle(cornerRadius: 16))
