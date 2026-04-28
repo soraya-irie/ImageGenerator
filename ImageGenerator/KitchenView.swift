@@ -8,6 +8,7 @@ struct KitchenView: View {
             Text("Refine Your Dish")
                 .font(.largeTitle.weight(.semibold))
             imageArea
+            ImageButtonsView()
             Spacer()
             if let error = appManager.error {
                 Text(error.localizedDescription)
