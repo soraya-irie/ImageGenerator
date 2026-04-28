@@ -1,4 +1,4 @@
-import Foundation
+import SwiftUI
 
 @Observable
 class AppManager {
@@ -20,5 +20,12 @@ class AppManager {
                 isGenerating = false
             }
         }
+    }
+}
+
+extension View {
+    func previewEnvironment() -> some View {
+        let appManager = AppManager()
+        return environment(appManager)
     }
 }
