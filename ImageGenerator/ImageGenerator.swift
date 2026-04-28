@@ -11,13 +11,15 @@ class ImageGenerator {
     }
 
     func generate() async throws -> ImageCreator.CreatedImage {
-        guard let style else { return }
+        guard let style else { throw ImageCreator.Error.creationFailed }
 
         let imageCreator = try await ImageCreator()
         let images = imageCreator.images(for: concepts, style: style, limit: 1)
         for try await image in images {
             return image
         }
+
+        throw ImageCreator.Error.creationFailed
     }
 }
 
