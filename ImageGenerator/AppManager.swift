@@ -38,8 +38,14 @@ class AppManager {
 }
 
 extension View {
-    func previewEnvironment() -> some View {
+    func previewEnvironment(generateImage: Bool = true) -> some View {
         let appManager = AppManager()
         return environment(appManager)
+            .onAppear {
+                if generateImage {
+                    appManager.imageGenerator.style = .animation
+                    appManager.generateImage()
+                }
+            }
     }
 }
