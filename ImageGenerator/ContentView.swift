@@ -13,6 +13,11 @@ struct ContentView: View {
                 StartView()
             }
         }
+        .overlay {
+            if appManager.isGenerating {
+                loadingView()
+            }
+        }
     }
 
     private func loadingView() -> some View {
