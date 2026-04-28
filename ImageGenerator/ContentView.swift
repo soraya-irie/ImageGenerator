@@ -1,13 +1,8 @@
-//
-//  ContentView.swift
-//  ImageGenerator
-//
-//  Created by soraya irie on 2026/04/27.
-//
-
 import SwiftUI
 
 struct ContentView: View {
+    @Environment(AppManager.self) private var appManager
+
     var body: some View {
         VStack {
             Image(systemName: "globe")
@@ -21,4 +16,5 @@ struct ContentView: View {
 
 #Preview {
     ContentView()
+        .previewEnvironment()
 }
