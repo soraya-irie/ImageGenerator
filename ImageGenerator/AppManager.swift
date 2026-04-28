@@ -1,8 +1,10 @@
 import SwiftUI
+import ImagePlayground
 
 @Observable
 class AppManager {
     let imageGenerator = ImageGenerator()
+    var currentImage: NSImage?
 
     private(set) var error: Error?
     private(set) var isGenerating = false
@@ -14,6 +16,7 @@ class AppManager {
         Task {
             do {
                 let generatedImage = try await imageGenerator.generate()
+                currentImage = NSImage(cgImage: generatedImage.cgImage, size: .zero)
                 isGenerating = false
             } catch {
                 self.error = error
