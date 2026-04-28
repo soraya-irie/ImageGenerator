@@ -11,12 +11,17 @@ struct StartView: View {
 
             Label("Choose a dish", systemImage: "fork.knife")
                 .padding(.top, 8)
+            Picker("Recipes", selection: $imageGenerator.recipe) {
+
+            }
 
             Label("Choose an image style", systemImage: "paintpalette.fill")
                 .padding(.top, 8)
 
             Spacer()
         }
+        .pickerStyle(.segmented)
+        .labelsHidden()
         .frame(width: ImageGenerator.imageSize)
         .padding()
     }
