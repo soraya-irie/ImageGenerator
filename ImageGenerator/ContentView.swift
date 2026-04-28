@@ -14,6 +14,15 @@ struct ContentView: View {
             }
         }
     }
+
+    private func loadingView() -> some View {
+        HStack(spacing: 8) {
+            ProgressView()
+            Text("Generating image...")
+        }
+        .padding()
+        .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 16))
+    }
 }
 
 #Preview {
