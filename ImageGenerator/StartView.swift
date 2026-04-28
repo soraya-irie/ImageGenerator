@@ -2,9 +2,11 @@ import SwiftUI
 import ImagePlayground
 
 struct StartView: View {
-    @State var imageGenerator = ImageGenerator()
+    @Environment(AppManager.self) private var appManager
 
     var body: some View {
+        @Bindable var imageGenerator = appManager.imageGenerator
+
         VStack(alignment: .leading, spacing: 16) {
             Text("Create a Unique Dish")
                 .font(.largeTitle.weight(.semibold))
@@ -38,4 +40,5 @@ struct StartView: View {
 
 #Preview {
     StartView()
+        .previewEnvironment()
 }
