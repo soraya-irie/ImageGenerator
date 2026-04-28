@@ -31,6 +31,10 @@ class AppManager {
         error = nil
         isGenerating = false
     }
+
+    var showKitchen: Bool {
+        currentImage != nil || isGenerating
+    }
 }
 
 extension View {
