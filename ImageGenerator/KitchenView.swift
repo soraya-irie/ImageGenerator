@@ -15,6 +15,13 @@ struct KitchenView: View {
             }
         }
         .padding()
+        .toolbar {
+            ToolbarItem(placement: .navigation) {
+                Button("Start Over", systemImage: "chevron.left") {
+                    appManager.reset()
+                }
+            }
+        }
     }
 
     private var imageArea: some View {
