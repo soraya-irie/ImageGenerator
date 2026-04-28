@@ -7,6 +7,7 @@ struct KitchenView: View {
         VStack(spacing: 16) {
             Text("Refine Your Dish")
                 .font(.largeTitle.weight(.semibold))
+            imageArea
             Spacer()
             if let error = appManager.error {
                 Text(error.localizedDescription)
@@ -14,6 +15,13 @@ struct KitchenView: View {
             }
         }
         .padding()
+    }
+
+    private var imageArea: some View {
+        Group {
+            Rectangle()
+                .fill(.gray.opacity(0.2))
+        }
     }
 }
 
