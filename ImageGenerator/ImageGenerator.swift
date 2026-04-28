@@ -5,6 +5,10 @@ import ImagePlayground
 class ImageGenerator {
     var recipe = ImageGenerator.defaultRecipe
     var style: ImagePlaygroundStyle?
+
+    func generate() async throws {
+        let imageCreator = try await ImageCreator()
+    }
 }
 
 extension ImageGenerator {
