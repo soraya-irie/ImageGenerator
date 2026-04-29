@@ -52,6 +52,7 @@ class AppManager {
 extension View {
     func previewEnvironment(generateImage: Bool = true) -> some View {
         let appManager = AppManager()
+        appManager.imageGenerator.ingredients.append("Strawberry")
         return environment(appManager)
             .onAppear {
                 if generateImage {
