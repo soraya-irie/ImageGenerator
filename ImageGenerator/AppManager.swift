@@ -4,6 +4,7 @@ import ImagePlayground
 @Observable
 class AppManager {
     let imageGenerator = ImageGenerator()
+    var showPlayground = false
     var currentImage: NSImage?
 
     private(set) var error: Error?
