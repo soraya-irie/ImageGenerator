@@ -8,11 +8,15 @@ struct ImageButtonsView: View {
         if displayForMenu {
             Group {
                 regenerateButton
+                imagePlaygroundButton
                 shareButton
             }
         } else {
             regenerateButton
                 .toolbar {
+                    ToolbarItem {
+                        imagePlaygroundButton
+                    }
                     ToolbarItem(placement: .primaryAction) {
                         shareButton
                     }
@@ -28,6 +32,14 @@ struct ImageButtonsView: View {
         .font(.footnote)
         .keyboardShortcut("r", modifiers: .command)
         .disabled(!appManager.showKitchen)
+    }
+
+    private var imagePlaygroundButton: some View {
+        Button("Edit in Image Playground", systemImage: "apple.image.playground") {
+            appManager.showPlayground = true
+        }
+        .keyboardShortcut("i", modifiers: [.command, .shift])
+        .disabled(appManager.currentImage == nil)
     }
 
     @ViewBuilder
