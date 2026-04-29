@@ -9,5 +9,10 @@ struct ImageGeneratorApp: App {
             ContentView()
                 .environment(appManager)
         }
+        .commands {
+            CommandMenu("Actions") {
+
+            }
+        }
     }
 }
