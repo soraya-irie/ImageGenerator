@@ -4,7 +4,15 @@ struct ImageButtonsView: View {
     @Environment(AppManager.self) private var appManager
 
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        regenerateButton
+    }
+
+    private var regenerateButton: some View {
+        Button("Regenerate", systemImage: "arrow.clockwise") {
+            appManager.generateImage()
+        }
+        .buttonStyle(.plain)
+        .font(.footnote)
     }
 }
 
