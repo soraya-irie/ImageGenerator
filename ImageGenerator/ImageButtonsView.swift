@@ -13,6 +13,8 @@ struct ImageButtonsView: View {
         }
         .buttonStyle(.plain)
         .font(.footnote)
+        .keyboardShortcut("r", modifiers: .command)
+        .disabled(!appManager.showKitchen)
     }
 }
 
