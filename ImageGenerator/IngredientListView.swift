@@ -16,6 +16,9 @@ struct IngredientListView: View {
             Text("Added Ingredients")
                 .font(.body.bold())
                 .padding(.vertical, 8)
+            ForEach(appManager.imageGenerator.ingredients, id: \.description) { ingredient in
+                Text(ingredient)
+            }
         }
     }
 }
