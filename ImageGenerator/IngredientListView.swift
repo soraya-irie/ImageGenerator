@@ -8,6 +8,10 @@ struct IngredientListView: View {
         VStack(alignment: .leading) {
             TextField("Add ingredients (optional)", text: $newIngredient)
                 .textFieldStyle(.roundedBorder)
+                .onSubmit {
+                    appManager.add(ingredient: newIngredient)
+                    newIngredient = ""
+                }
 
             Text("Added Ingredients")
                 .font(.body.bold())
