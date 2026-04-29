@@ -21,8 +21,13 @@ class AppManager {
                 currentImage = NSImage(cgImage: generatedImage.cgImage, size: .zero)
                 isGenerating = false
             } catch {
-                self.error = error
-                isGenerating = false
+                do {
+                    try Task.checkCancellation()
+                    self.error = error
+                    isGenerating = false
+                } catch {
+                    // Task cancelled
+                }
             }
         }
     }
