@@ -2,6 +2,7 @@ import SwiftUI
 
 struct ImageButtonsView: View {
     @Environment(AppManager.self) private var appManager
+    var displayForMenu = false
 
     var body: some View {
         regenerateButton
@@ -35,5 +36,6 @@ struct ImageButtonsView: View {
 }
 
 #Preview {
-    ImageButtonsView()
+    ImageButtonsView(displayForMenu: true)
+        .previewEnvironment(generateImage: false)
 }
