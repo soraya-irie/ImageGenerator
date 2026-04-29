@@ -1,9 +1,11 @@
 import SwiftUI
+import ImagePlayground
 
 struct KitchenView: View {
     @Environment(AppManager.self) private var appManager
 
     var body: some View {
+        @Bindable var appManager = appManager
         VStack(spacing: 16) {
             Text("Refine Your Dish")
                 .font(.largeTitle.weight(.semibold))
@@ -17,6 +19,14 @@ struct KitchenView: View {
             }
         }
         .padding()
+        .imagePlaygroundSheet(
+            isPresented: $appManager.showPlayground,
+            concepts: appManager.imageGenerator.concepts,
+            sourceImage: appManager.currentImage.map(Image.init),
+            onCompletion: { url in
+
+            }
+        )
         .toolbar {
             ToolbarItem(placement: .navigation) {
                 Button("Start Over", systemImage: "chevron.left") {
