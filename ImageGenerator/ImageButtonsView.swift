@@ -5,6 +5,11 @@ struct ImageButtonsView: View {
 
     var body: some View {
         regenerateButton
+            .toolbar {
+                ToolbarItem(placement: .primaryAction) {
+                    shareButton
+                }
+            }
     }
 
     private var regenerateButton: some View {
@@ -15,6 +20,17 @@ struct ImageButtonsView: View {
         .font(.footnote)
         .keyboardShortcut("r", modifiers: .command)
         .disabled(!appManager.showKitchen)
+    }
+
+    @ViewBuilder
+    private var shareButton: some View {
+        if let image = appManager.currentImage {
+            let  preview = SharePreview("My Recipe", image: image)
+            ShareLink(item: image, preview: preview) {
+                Label("Share", systemImage: "square.and.arrow.up")
+            }
+            .buttonStyle(.borderedProminent)
+        }
     }
 }
 
