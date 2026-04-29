@@ -18,10 +18,20 @@ struct IngredientListView: View {
                 .padding(.vertical, 8)
             LazyVGrid(columns: [GridItem(), GridItem()]) {
                 ForEach(appManager.imageGenerator.ingredients, id: \.description) { ingredient in
-                    Text(ingredient)
+                    field(ingredient: ingredient)
                 }
             }
         }
+    }
+
+    private func field(ingredient: String) -> some View {
+        HStack {
+            Text(ingredient.capitalized)
+        }
+        .padding(.horizontal, 8)
+        .padding(.vertical, 4)
+        .foregroundStyle(.white)
+        .background(.blue, in: Capsule())
     }
 }
 
