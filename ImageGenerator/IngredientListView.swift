@@ -27,6 +27,14 @@ struct IngredientListView: View {
     private func field(ingredient: String) -> some View {
         HStack {
             Text(ingredient.capitalized)
+                .lineLimit(1)
+            Spacer()
+            Button {
+                appManager.remove(ingredient: ingredient)
+            } label: {
+                Image(systemName: "xmark.circle.fill")
+            }
+            .buttonStyle(.plain)
         }
         .padding(.horizontal, 8)
         .padding(.vertical, 4)
