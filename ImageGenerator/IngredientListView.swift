@@ -13,12 +13,14 @@ struct IngredientListView: View {
                     newIngredient = ""
                 }
 
-            Text("Added Ingredients")
-                .font(.body.bold())
-                .padding(.vertical, 8)
-            LazyVGrid(columns: [GridItem(), GridItem()]) {
-                ForEach(appManager.imageGenerator.ingredients, id: \.description) { ingredient in
-                    field(ingredient: ingredient)
+            if !appManager.imageGenerator.ingredients.isEmpty {
+                Text("Added Ingredients")
+                    .font(.body.bold())
+                    .padding(.vertical, 8)
+                LazyVGrid(columns: [GridItem(), GridItem()]) {
+                    ForEach(appManager.imageGenerator.ingredients, id: \.description) { ingredient in
+                        field(ingredient: ingredient)
+                    }
                 }
             }
         }
