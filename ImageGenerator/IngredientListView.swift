@@ -4,7 +4,11 @@ struct IngredientListView: View {
     @Environment(AppManager.self) private var appManager
 
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack(alignment: .leading) {
+            Text("Added Ingredients")
+                .font(.body.bold())
+                .padding(.vertical, 8)
+        }
     }
 }
 
