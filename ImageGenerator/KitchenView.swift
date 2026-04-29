@@ -24,7 +24,10 @@ struct KitchenView: View {
             concepts: appManager.imageGenerator.concepts,
             sourceImage: appManager.currentImage.map(Image.init),
             onCompletion: { url in
-
+                if let data = try? Data(contentsOf: url),
+                   let nsImage = NSImage(data: data) {
+                    appManager.currentImage = nsImage
+                }
             }
         )
         .toolbar {
