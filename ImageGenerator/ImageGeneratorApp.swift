@@ -1,17 +1,19 @@
-//
-//  ImageGeneratorApp.swift
-//  ImageGenerator
-//
-//  Created by soraya irie on 2026/04/27.
-//
-
 import SwiftUI
 
 @main
 struct ImageGeneratorApp: App {
+    @State var appManager = AppManager()
+
     var body: some Scene {
-        WindowGroup {
+        Window("ImageGenerator", id: "main") {
             ContentView()
+                .environment(appManager)
+        }
+        .commands {
+            CommandMenu("Actions") {
+                ImageButtonsView(displayForMenu: true)
+                    .environment(appManager)
+            }
         }
     }
 }
