@@ -8,12 +8,13 @@ class AppManager {
 
     private(set) var error: Error?
     private(set) var isGenerating = false
+    private var task: Task<Void, Never>?
 
     func generateImage() {
         error = nil
         isGenerating = true
 
-        Task {
+        task = Task {
             do {
                 let generatedImage = try await imageGenerator.generate()
                 currentImage = NSImage(cgImage: generatedImage.cgImage, size: .zero)
