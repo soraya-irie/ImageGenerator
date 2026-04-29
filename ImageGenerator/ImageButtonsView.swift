@@ -5,12 +5,19 @@ struct ImageButtonsView: View {
     var displayForMenu = false
 
     var body: some View {
-        regenerateButton
-            .toolbar {
-                ToolbarItem(placement: .primaryAction) {
-                    shareButton
-                }
+        if displayForMenu {
+            Group {
+                regenerateButton
+                shareButton
             }
+        } else {
+            regenerateButton
+                .toolbar {
+                    ToolbarItem(placement: .primaryAction) {
+                        shareButton
+                    }
+                }
+        }
     }
 
     private var regenerateButton: some View {
