@@ -13,6 +13,7 @@ class AppManager {
     func generateImage() {
         error = nil
         isGenerating = true
+        task?.cancel()
 
         task = Task {
             do {
@@ -31,6 +32,7 @@ class AppManager {
         currentImage = nil
         error = nil
         isGenerating = false
+        task?.cancel()
     }
 
     func remove(ingredient: String) {
