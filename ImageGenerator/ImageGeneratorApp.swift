@@ -11,7 +11,8 @@ struct ImageGeneratorApp: App {
         }
         .commands {
             CommandMenu("Actions") {
-
+                ImageButtonsView(displayForMenu: true)
+                    .environment(appManager)
             }
         }
     }
